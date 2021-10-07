@@ -57,13 +57,12 @@ def print_pairing_info(all_melon_types):
     """Prints information about each melon type's pairings."""
     for melon_type in all_melon_types:
         # print melon type
-        print(f"For {melon_type}, it's pairings are:")
+        lower_melon = melon_type.lower()
+        print(f"For {lower_melon}, it's pairings are:")
          #for loop for pairings
-        for pair in {melon_type}.lower().pairings:
-            print(pair)
-        
+        for pairing in lower_melon.pairings:
+            print (f'- {pairing}')
         # pairings doesn't change so it's outside of the {}
-
 
 print_pairing_info(our_melons)
 
