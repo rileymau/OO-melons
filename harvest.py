@@ -28,43 +28,44 @@ class MelonType(object):
 
         self.code = new_code
 
-
-def make_melon_types():
-    """Returns a list of current melon types."""
-
-    all_melon_types = ['Muskmellon', 'Casaba', "Crenshaw", "Yellow_Watermelon"]
-    print(all_melon_types)  
-
-    return all_melon_types
-
-#call all_melon_types
-our_melons = make_melon_types()
-
-
 #add melon types each with their attributes
-muskmellon = MelonType("musk", 1998, "green", True, True, "Muskmellon")
+muskmelon = MelonType("musk", 1998, "green", True, True, "Muskmellon")
 casaba = MelonType("cas", 2003, "orange",False, False, "Casaba")
 crenshaw = MelonType("cren", 1996, "green", False, False, "Crenshaw")
 yellow_watermelon = MelonType("yw", 2013,"yellow",False, True, "Yellow_Watermelon")
 
-print(muskmellon.color)
+def make_melon_types():
+    """Returns a list of current melon types."""
+
+    all_melon_types = []
+    
+    all_melon_types.append(muskmelon.name)
+    all_melon_types.append(casaba.name)
+    all_melon_types.append(crenshaw.name)
+    all_melon_types.append(yellow_watermelon.name)
+
+    print(all_melon_types)
+
+make_melon_types()
 
 #add all pairings
-muskmellon.add_pairing('mint')
-
+muskmelon.add_pairing('mint')
+casaba.add_pairing('mint')
+casaba.add_pairing('strawberry')
+crenshaw.add_pairing('prosciutto')
+yellow_watermelon.add_pairing('ice cream')
 
 def print_pairing_info(all_melon_types):
     """Prints information about each melon type's pairings."""
-    for melon_type in all_melon_types:
+    for melon in all_melon_types:
         # print melon type
-        lower_melon = melon_type.lower()
-        print(f"For {lower_melon}, it's pairings are:")
+        print(f'Parings for {melon.name} are:')
          #for loop for pairings
-        for pairing in lower_melon.pairings:
-            print (f'- {pairing}')
-        # pairings doesn't change so it's outside of the {}
-
-print_pairing_info(our_melons)
+        for pairing in melon.pairings:
+            print (f'{pairing}')
+        
+all_melon_types = [muskmelon, casaba, crenshaw, yellow_watermelon]
+print_pairing_info(all_melon_types)
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
